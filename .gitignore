@@ -7,4 +7,5 @@ models/*.keras
 data/*.jsonl
 data/*.csv
 web/*.log
+web/
 CV_PROJECT_NOTE.md
