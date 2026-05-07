@@ -1,0 +1,18 @@
+[project]
+name = "deep-chess-ai"
+version = "0.1.0"
+description = "Chess engine with PyTorch and TensorFlow value networks, minimax search and playable UI."
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "python-chess>=1.999",
+  "torch>=2.3",
+  "tensorflow>=2.16",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

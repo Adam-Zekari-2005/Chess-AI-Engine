@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chess AI | Adam ZEKARI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="theme-dock" aria-label="Choix du theme">
+      <button class="theme-choice active" data-theme="light" type="button">Tamise</button>
+      <button class="theme-choice" data-theme="dark" type="button">Sombre</button>
+    </div>
+
+    <main class="app-shell">
+      <section class="screen hero-screen" id="homeScreen" aria-labelledby="heroTitle">
+        <header class="topbar">
+          <a class="brand" href="#" aria-label="Chess AI">
+            <span class="brand-mark">&#9818;</span>
+            <span>
+              Chess AI
+              <small>Cr&eacute;&eacute; par Adam ZEKARI</small>
+            </span>
+          </a>
+          <button class="nav-button" id="goLoginTop" type="button">Se connecter</button>
+        </header>
+
+        <div class="hero-board" aria-hidden="true">
+          <div class="floating-board" id="floatingBoard"></div>
+        </div>
+
+        <div class="hero-content">
+          <h1 id="heroTitle">Bienvenue sur Chess Engine</h1>
+          <p class="hero-copy">
+            Un moteur d'echecs intelligent avec IA, niveaux de difficulte
+            et reseaux neuronaux pour apprendre le deep learning.
+          </p>
+          <button class="primary-button" id="startButton" type="button">Commencer</button>
+        </div>
+
+        <button class="scroll-down" id="scrollDown" type="button" aria-label="Descendre vers la presentation">
+          <span>D&eacute;couvrir</span>
+          <strong>&darr;</strong>
+        </button>
+      </section>
+
+      <section class="info-screen" id="infoScreen" aria-labelledby="infoTitle">
+        <div class="info-heading">
+          <p class="eyebrow">Le principe</p>
+          <h2 id="infoTitle">Un jeu d'echecs contre une intelligence artificielle</h2>
+          <p>
+            Le joueur choisit un niveau, joue les blancs, puis l'IA analyse la position
+            et repond avec un coup. Le projet montre a la fois le jeu, le moteur de decision
+            et l'apprentissage automatique.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <article>
+            <span>01</span>
+            <h3>Jouer</h3>
+            <p>Tu selectionnes une piece, les coups possibles apparaissent avec un petit rond, puis tu joues ton coup.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Analyser</h3>
+            <p>Le moteur compare les positions avec une recherche minimax et une evaluation intelligente.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Apprendre</h3>
+            <p>Le projet integre PyTorch et TensorFlow/Keras pour entrainer un reseau qui evalue les positions.</p>
+          </article>
+        </div>
+
+        <div class="info-action">
+          <button class="primary-button" id="infoStartButton" type="button">Commencer &agrave; jouer</button>
+        </div>
+      </section>
+
+      <section class="screen auth-screen hidden" id="authScreen" aria-labelledby="authTitle">
+        <button class="back-button" id="backHomeFromAuth" type="button">Retour</button>
+        <div class="auth-panel">
+          <div class="auth-intro">
+            <p class="eyebrow">Espace joueur</p>
+            <h2 id="authTitle">Connecte-toi pour jouer</h2>
+            <p>Inscris-toi ou connecte-toi, choisis ton avatar, puis lance une partie contre l'IA ou contre un ami.</p>
+          </div>
+
+          <div class="auth-card">
+            <div class="auth-tabs" role="tablist" aria-label="Connexion ou inscription">
+              <button class="auth-tab active" data-auth="login" type="button">Connexion</button>
+              <button class="auth-tab" data-auth="signup" type="button">Inscription</button>
+            </div>
+
+            <form class="auth-form active" id="loginForm">
+              <label>
+                Nom utilisateur
+                <input type="text" name="username" required />
+              </label>
+              <label>
+                Mot de passe
+                <input type="password" name="password" required />
+              </label>
+              <button class="primary-button full" type="submit">Se connecter</button>
+            </form>
+
+            <form class="auth-form" id="signupForm">
+              <label>
+                Nom utilisateur
+                <input type="text" name="username" required />
+              </label>
+              <div class="avatar-field">
+                <span>Choisis ton avatar</span>
+                <div class="avatar-grid" id="avatarGrid" aria-label="Choix avatar">
+                  <button class="avatar-choice active" data-avatar-name="Chevalier" data-avatar-style="avatar-knight" data-avatar-letter="C" type="button">
+                    <span class="character-avatar avatar-knight">C</span>
+                    <small>Chevalier</small>
+                  </button>
+                  <button class="avatar-choice" data-avatar-name="Mage" data-avatar-style="avatar-mage" data-avatar-letter="M" type="button">
+                    <span class="character-avatar avatar-mage">M</span>
+                    <small>Mage</small>
+                  </button>
+                  <button class="avatar-choice" data-avatar-name="Ninja" data-avatar-style="avatar-ninja" data-avatar-letter="N" type="button">
+                    <span class="character-avatar avatar-ninja">N</span>
+                    <small>Ninja</small>
+                  </button>
+                  <button class="avatar-choice" data-avatar-name="Robot" data-avatar-style="avatar-robot" data-avatar-letter="R" type="button">
+                    <span class="character-avatar avatar-robot">R</span>
+                    <small>Robot</small>
+                  </button>
+                  <button class="avatar-choice" data-avatar-name="Pirate" data-avatar-style="avatar-pirate" data-avatar-letter="P" type="button">
+                    <span class="character-avatar avatar-pirate">P</span>
+                    <small>Pirate</small>
+                  </button>
+                  <button class="avatar-choice" data-avatar-name="Samourai" data-avatar-style="avatar-samourai" data-avatar-letter="S" type="button">
+                    <span class="character-avatar avatar-samourai">S</span>
+                    <small>Samourai</small>
+                  </button>
+                </div>
+              </div>
+              <label>
+                Mot de passe
+                <input type="password" name="password" minlength="6" required />
+              </label>
+              <button class="primary-button full" type="submit">Creer mon compte</button>
+            </form>
+
+            <p class="auth-message" id="authMessage">Bienvenue sur Chess AI.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen game-screen hidden" id="gameScreen" aria-labelledby="gameTitle">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Partie contre l'IA</p>
+            <h2 id="gameTitle">A toi de jouer</h2>
+          </div>
+          <div class="game-actions">
+            <div class="player-pill">
+              <span class="character-avatar mini-avatar avatar-knight" id="headerAvatar">C</span>
+              <span id="playerName">Joueur</span>
+            </div>
+            <button class="nav-button dark" id="logoutButton" type="button">Quitter</button>
+          </div>
+        </header>
+
+        <div class="game-layout">
+          <div class="play-card">
+            <div class="mode-switch" role="group" aria-label="Mode de jeu">
+              <button class="mode-control active" data-mode="ai" type="button">Joueur vs IA</button>
+              <button class="mode-control" data-mode="online" type="button">Joueur vs joueur</button>
+            </div>
+            <div class="online-panel hidden" id="onlinePanel">
+              <input id="roomInput" type="text" value="adam-room" aria-label="Salon de jeu" />
+              <button id="joinRoomButton" type="button">Rejoindre</button>
+              <span id="roomStatus">Hors ligne</span>
+            </div>
+            <div class="controls" role="group" aria-label="Choix du niveau">
+              <button class="level-control active" data-level="Facile" type="button">Facile</button>
+              <button class="level-control" data-level="Moyen" type="button">Moyen</button>
+              <button class="level-control" data-level="Difficile" type="button">Difficile</button>
+            </div>
+            <div class="web-board" id="demoBoard" aria-label="Echiquier jouable"></div>
+            <div class="move-console">
+              <span id="moveStatus">Selectionne une piece blanche.</span>
+              <button id="resetBoard" type="button">Nouvelle partie</button>
+            </div>
+          </div>
+
+          <aside class="status-card">
+            <section class="profile-card" aria-labelledby="profileTitle">
+              <div class="character-avatar profile-avatar avatar-knight" id="profileAvatar">C</div>
+              <div>
+                <span class="profile-kicker">Mon profil</span>
+                <h3 id="profileTitle">Joueur</h3>
+                <p id="profileSubtitle">Pret pour la prochaine partie.</p>
+              </div>
+            </section>
+
+            <div class="profile-stats" aria-label="Statistiques profil">
+              <div>
+                <span id="statGames">0</span>
+                <small>Parties</small>
+              </div>
+              <div>
+                <span id="statMode">IA</span>
+                <small>Mode</small>
+              </div>
+              <div>
+                <span id="levelLabel">Facile</span>
+                <small>Niveau</small>
+              </div>
+            </div>
+
+            <div class="engine-note">
+              <h3>Chess Engine</h3>
+              <p>Moteur minimax, IA difficile, mode joueur contre joueur et chat temps reel.</p>
+              <strong>Made by Adam Zekari</strong>
+            </div>
+
+            <div class="friends-box">
+              <h3>Amis & invitations</h3>
+              <div class="friend-actions">
+                <input id="friendInput" type="text" aria-label="Nom utilisateur ami" />
+                <button id="addFriendButton" type="button">Ajouter</button>
+              </div>
+              <div class="friend-list" id="friendList"></div>
+              <div class="invite-notice hidden" id="inviteNotice"></div>
+              <form class="private-form" id="privateForm">
+                <input id="privateTarget" type="text" aria-label="Destinataire message prive" />
+                <input id="privateInput" type="text" autocomplete="off" aria-label="Message prive" />
+                <button type="submit">MP</button>
+              </form>
+              <div class="private-messages" id="privateMessages"></div>
+            </div>
+
+            <div class="chat-box">
+              <h3>Chat en direct</h3>
+              <div class="chat-messages" id="chatMessages"></div>
+              <form class="chat-form" id="chatForm">
+                <input id="chatInput" type="text" autocomplete="off" aria-label="Message" />
+                <button type="submit">Envoyer</button>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

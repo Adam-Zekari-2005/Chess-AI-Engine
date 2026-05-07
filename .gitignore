@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/*.pt
+models/*.keras
+data/*.jsonl
+data/*.csv
+web/*.log
+CV_PROJECT_NOTE.md

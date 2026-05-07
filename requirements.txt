@@ -1,0 +1,5 @@
+numpy>=1.26
+python-chess>=1.999
+torch>=2.3
+tensorflow>=2.16
+pytest>=8.0
