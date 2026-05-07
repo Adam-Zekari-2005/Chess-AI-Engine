@@ -8,4 +8,6 @@ data/*.jsonl
 data/*.csv
 web/*.log
 web/
+start_web.ps1
+start_web.bat
 CV_PROJECT_NOTE.md
