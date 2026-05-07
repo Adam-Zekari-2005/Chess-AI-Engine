@@ -38,32 +38,6 @@ python -m pip install -r requirements.txt
 
 ## Lancer le jeu
 
-Site web:
-
-Ouvre directement le fichier suivant dans ton navigateur:
-
-```text
-web/index.html
-```
-
-Pour utiliser le mode joueur contre joueur et le chat en direct, lance le
-serveur web local:
-
-```powershell
-.\start_web.ps1
-```
-
-Puis ouvre:
-
-```text
-http://localhost:3000
-```
-
-Deux joueurs peuvent rejoindre le meme salon, par exemple `adam-room`.
-Le site inclut aussi un choix de theme clair/sombre, un profil avec avatar,
-une liste d'amis, des invitations de partie et des messages prives en direct
-quand le serveur local est lance.
-
 Interface graphique sans modele entraine:
 
 ```powershell
@@ -149,25 +123,3 @@ pytorch-chess-ai/
     test_engine.py
   requirements.txt
 ```
-
-## Pourquoi c'est interessant pour un CV
-
-Ce projet combine plusieurs competences recherchees:
-
-- Python avance: modules, typage, architecture propre.
-- IA appliquee: evaluation de positions, recherche adversariale, niveaux de difficulte.
-- PyTorch: tenseurs, reseau convolutionnel, boucle d'entrainement, sauvegarde de modele.
-- TensorFlow/Keras: modele CNN equivalent, entrainement supervise et sauvegarde `.keras`.
-- Software engineering: tests, CLI, interface graphique, separation des responsabilites.
-
-Exemple de phrase CV:
-
-> Developpement d'un moteur d'echecs en Python avec PyTorch et TensorFlow/Keras, integrant un reseau neuronal d'evaluation de positions, une recherche minimax alpha-beta et un pipeline d'entrainement par auto-jeu.
-
-## Ameliorations possibles
-
-- Ajouter une base PGN de vraies parties.
-- Integrer Stockfish comme adversaire de reference.
-- Ajouter des graphiques de loss pendant l'entrainement.
-- Ajouter une interface web avec FastAPI ou Streamlit.
-- Comparer PyTorch et TensorFlow sur le meme dataset.
