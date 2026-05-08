@@ -1,14 +1,12 @@
 # Deep Chess AI realise par ZEKARI Adam
 
-Un projet complet de moteur d'echecs avec IA, concu pour apprendre PyTorch et TensorFlow/Keras tout en montrant un travail solide sur un CV: representation du plateau, reseau neuronal, recherche minimax alpha-beta, entrainement par auto-jeu et interface jouable contre l'IA.
+Un projet complet de moteur d'echecs avec IA, en appliquant PyTorch et TensorFlow/Keras : representation du plateau, reseau neuronal, recherche minimax alpha-beta, entrainement par auto-jeu et interface jouable contre l'IA.
 
 ## Objectifs du projet
 
-- Apprendre les bases de PyTorch et TensorFlow/Keras sur un probleme concret.
-- Construire une IA capable de choisir des coups legaux.
+- Construire une IA capable de choisir des coups legaux avec Pythorch/TensorFlow-Keras.
 - Proposer 3 niveaux de difficulte: facile, moyen, difficile.
 - Montrer une architecture propre, testable et extensible.
-- Fournir un projet presentable sur GitHub et dans un CV.
 
 ## Fonctionnalites
 
